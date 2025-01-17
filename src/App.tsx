@@ -1,9 +1,10 @@
 import "./App.css";
+import MainLayout from "./layout";
 
 function App() {
   return (
     <>
-      <h1>welcome to whatsapp clone </h1>
+      <MainLayout />
     </>
   );
 }
