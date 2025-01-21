@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
+        index: true,
+        element: <Navigate to="/chats" replace />,
+      },
+      {
         path: "/chats",
         element: <Chats />,
       },
@@ -42,10 +46,6 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
-  },
-  {
-    path: "/",
-    element: <Navigate to="/chats" />,
   },
 ]);
 function App() {

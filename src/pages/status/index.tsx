@@ -84,10 +84,10 @@ export default function Status() {
               </div>
             ))}
           </div>
-          <p className="text-xs flex items-center justify-center w-full py-2 ">
+          <p className="text-xs flex items-center justify-center w-full py-2 mt-4">
             <LockClosedIcon className="w-3 h-3 mr-1" />
             Your status updates are{" "}
-            <span className="text-[#017a56]"> end-to-end encrypted</span>
+            <span className="text-[#017a56] ml-1"> end-to-end encrypted</span>
           </p>
         </div>
       </div>

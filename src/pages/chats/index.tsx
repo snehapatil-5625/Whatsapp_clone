@@ -42,7 +42,7 @@ export default function Chats() {
           <input
             type="search"
             placeholder="Search"
-            className="w-full pl-9 pr-4 py-2 bg-[#f0f2f5] rounded-lg outline-none"
+            className="w-full text-sm pl-9 pr-4 py-2 bg-[#f0f2f5] rounded-lg outline-none"
           />
         </div>
       </div>

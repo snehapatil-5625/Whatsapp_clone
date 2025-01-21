@@ -7,7 +7,8 @@ import {
 } from "@heroicons/react/24/outline";
 import ChatArea from "./components/chat-area";
 import Sidebar from "./components/sidebar";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const nav = [
   {
@@ -23,16 +24,22 @@ const nav = [
   {
     id: 3,
     icon: <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gray-600" />,
-    href: "channel",
+    href: "/channel",
   },
   {
     id: 4,
     icon: <UserGroupIcon className="w-6 h-6 text-gray-600" />,
-    href: "community",
+    href: "/community",
   },
 ];
 export default function MainLayout() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    navigate("/chats", { replace: true });
+  }, [navigate]);
+
   return (
     <div className="h-screen bg-[#00a884] p-4">
       <div className="flex h-full bg-[#f0f2f5] overflow-hidden">
@@ -43,13 +50,22 @@ export default function MainLayout() {
                 navigate(item.href);
               }}
               key={item.id}
-              className="p-2 rounded-full bg-transparent hover:bg-gray-200 hover:border-transparent"
+              className={`p-1.5 rounded-full hover:border-transparent ${
+                location.pathname === item.href
+                  ? "bg-gray-300"
+                  : "bg-transparent"
+              }`}
             >
               {item.icon}
             </button>
           ))}
 
-          <button className="mt-auto p-2 rounded-full bg-transparent hover:bg-gray-200 hover:border-transparent">
+          <button
+            onClick={() => {
+              navigate("/settings");
+            }}
+            className="mt-auto p-2 rounded-full bg-transparent hover:bg-gray-200 hover:border-transparent"
+          >
             <Cog6ToothIcon className="w-6 h-6 text-gray-600" />
           </button>
         </nav>
