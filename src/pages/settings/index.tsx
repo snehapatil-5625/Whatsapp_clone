@@ -1,4 +1,12 @@
-import { LockClosedIcon, UserCircleIcon } from "@heroicons/react/20/solid";
+import {
+  ArrowRightStartOnRectangleIcon,
+  BellAlertIcon,
+  ChatBubbleBottomCenterIcon,
+  CheckBadgeIcon,
+  LockClosedIcon,
+  QuestionMarkCircleIcon,
+  UserCircleIcon,
+} from "@heroicons/react/20/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const channelData = [
@@ -7,19 +15,22 @@ const channelData = [
     icon: <UserCircleIcon />,
   },
   { name: "Privacy", icon: <LockClosedIcon /> },
-  { name: "Chats", follower: "5M followers" },
+  { name: "Chats", icon: <ChatBubbleBottomCenterIcon /> },
   {
     name: "Notifications",
-    follower: "8M followers",
+    icon: <BellAlertIcon />,
   },
   {
     name: "keyboard shortcuts",
+    icon: <CheckBadgeIcon />,
   },
   {
     name: "Help",
+    icon: <QuestionMarkCircleIcon />,
   },
   {
     name: "Log out",
+    icon: <ArrowRightStartOnRectangleIcon />,
   },
 ];
 export default function Settings() {
@@ -30,7 +41,7 @@ export default function Settings() {
           <h1 className="text-xl font-semibold">Settings</h1>
         </div>
       </div>
-      <div className="p-2 bg-white">
+      <div className="bg-white px-3 py-2">
         <div className="relative">
           <MagnifyingGlassIcon className="absolute text-gray-500 left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
           <input
@@ -40,7 +51,7 @@ export default function Settings() {
           />
         </div>
       </div>
-      <div className="flex items-center bg-white px-4 py-4 gap-2">
+      <div className="flex items-center bg-white px-4 py-2 gap-2">
         <div className="w-16 h-16 text-sm text-center rounded-full overflow-hidden bg-gray-300 flex-shrink-0">
           <img
             src="/placeholder.svg"
@@ -54,38 +65,22 @@ export default function Settings() {
       <div className="flex-1 overflow-y-auto bg-white h-screen overflow-auto py-2">
         <div>
           {channelData.map((chat, i) => (
-            <div className="border-b px-1 hover:bg-[#f0f2f5]">
+            <div className="border-b px-3 py-1.5 hover:bg-[#f0f2f5]">
               <button
                 key={i}
-                className="flex bg-transparent items-center gap-3 w-full p-2 hover:border-transparent rounded-none transition-colors"
+                className="flex bg-transparent items-center gap-6 w-full p-2 hover:border-transparent rounded-none transition-colors"
               >
-                <div className="w-12 h-12 text-sm text-center rounded-full bg-gray-300 overflow-hidden flex-shrink-0">
-                  <img
-                    src="/placeholder.svg"
-                    alt={chat.name}
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-5 h-5 text-sm text-center rounded-full overflow-hidden flex-shrink-0">
+                  <span>{chat.icon}</span>
                 </div>
                 <div className="flex w-full items-center justify-between">
                   <div className="flex flex-col text-left ">
-                    <span className="font-medium text-md">{chat.name}</span>
-
-                    <p className="text-sm font-md text-gray-500 truncate">
-                      {chat.follower}
-                    </p>
+                    <span className="font-medium text-md ">{chat.name}</span>
                   </div>
-                  <button className="px-3 py-1.5 text-[#008069] text-sm rounded-3xl bg-transparent border-gray-200 hover:border-gray-300">
-                    Follow
-                  </button>
                 </div>
               </button>
             </div>
           ))}
-        </div>
-        <div className="flex w-full items-center justify-center py-4">
-          <button className="px-4 py-1.5 text-sm text-white rounded-3xl bg-[#008069] hover:border-transparent">
-            Discover more
-          </button>
         </div>
       </div>
     </div>
