@@ -44,7 +44,7 @@ export default function MainLayout() {
   return (
     <div className="h-screen bg-[#00a884] p-4">
       <div className="flex h-full bg-[#f0f2f5] overflow-hidden">
-        <nav className="w-[65px] bg-[#f0f2f5] flex flex-col border-r">
+        <nav className="w-[65px] bg-[#f0f2f5] flex flex-col border-r border-r-[2px]">
           <div className="flex-1 flex flex-col gap-2 items-center py-4">
             {nav.map((item) => (
               <button
