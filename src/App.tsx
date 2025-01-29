@@ -11,6 +11,7 @@ import Channels from "./pages/channels";
 import Communities from "./pages/communities";
 import Settings from "./pages/settings";
 import Profile from "./pages/profile";
+import { ChatProvider } from "./lib/chat-context";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-      <RouterProvider router={router} />
+      <ChatProvider>
+        <RouterProvider router={router} />
+      </ChatProvider>
     </>
   );
 }

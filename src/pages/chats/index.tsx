@@ -3,22 +3,55 @@ import {
   MagnifyingGlassIcon,
   PlusIcon,
 } from "@heroicons/react/24/outline";
-const chats = [
+import { useChat } from "../../lib/chat-context";
+
+type Chat = {
+  id: number;
+  name: string;
+  messages: { text: string; time: string; sender: string }[];
+};
+
+export interface ChatsProps {
+  onSelectChat: (chat: Chat) => void;
+}
+
+const chats: Chat[] = [
   {
+    id: 1,
     name: "Self (You)",
-    message: "https://snehapatil.vercel.app/",
-    time: "Wednesday",
+    messages: [
+      {
+        text: "https://snehapatil.vercel.app/",
+        time: "Wednesday",
+        sender: "self",
+      },
+    ],
   },
-  { name: "Sayali", message: "br", time: "10:11 AM" },
-  { name: "Vishu", message: "Ha ha", time: "7:17 AM" },
   {
+    id: 2,
+    name: "Sayali",
+    messages: [{ text: "br", time: "10:11 AM", sender: "sayali" }],
+  },
+  {
+    id: 3,
+    name: "Vishu",
+    messages: [{ text: "Ha ha", time: "7:17 AM", sender: "vishu" }],
+  },
+  {
+    id: 4,
     name: "Khimaj Fashion",
-    message: "Khimaj fashion: ⭐ Khimaj Fashion⭐ Jaipuri...",
-    time: "Yesterday",
+    messages: [
+      {
+        text: "⭐ Khimaj Fashion⭐ Jaipuri...",
+        time: "Yesterday",
+        sender: "khimaj",
+      },
+    ],
   },
 ];
 
 export default function Chats() {
+  const { onSelectChat } = useChat();
   return (
     <div>
       <div className="flex items-center bg-white justify-between px-4 py-3">
@@ -69,6 +102,7 @@ export default function Chats() {
           {chats.map((chat, i) => (
             <div className=" border-b">
               <button
+                onClick={() => onSelectChat(chat)}
                 key={i}
                 className="flex bg-transparent items-center gap-3 w-full  p-2 hover:bg-[#f0f2f5] hover:border-transparent rounded-none transition-colors"
               >
@@ -82,10 +116,12 @@ export default function Chats() {
                 <div className="flex-1 text-left">
                   <div className="flex items-center justify-between">
                     <span className="font-medium">{chat.name}</span>
-                    <span className="text-xs text-gray-500">{chat.time}</span>
+                    <span className="text-xs text-gray-500">
+                      {chat.messages[0]?.time}
+                    </span>
                   </div>
                   <p className="text-sm text-gray-500 truncate">
-                    {chat.message}
+                    {chat.messages[0]?.text}
                   </p>
                 </div>
               </button>
