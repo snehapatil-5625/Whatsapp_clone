@@ -20,10 +20,10 @@ const data = [
 ];
 export default function AccountSettings() {
   return (
-    <div className="flex flex-col gap-3 ">
+    <div className="flex flex-col gap-1 bg-white h-screen">
       {data.map((item) => (
-        <div className="flex items-center gap-4 hover:bg-gray-200 ">
-          <span className="w-5 h-5">{item.icon}</span>
+        <div className="flex items-center gap-4 hover:bg-gray-100 px-4 py-4">
+          <span className="w-5 h-5 ">{item.icon}</span>
           <div className="text-md">{item.name}</div>
         </div>
       ))}

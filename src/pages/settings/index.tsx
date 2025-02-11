@@ -94,21 +94,23 @@ export default function Settings() {
       </div>
 
       <div
-        className={`absolute right-0 top-0 h-full w-[400px] bg-white  p-5 border-l border-gray-300 transition-transform duration-300 ${
+        className={`absolute right-0 top-0 h-full w-[400px]  transition-transform duration-300 ${
           selected ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {selected && (
-          <>
+          <div className="bg-white ">
             <button
-              className="absolute top-5 left-3 p-0 bg-transparent hover:border-transparent text-gray-600"
+              className="absolute top-5 left-3 p-0 bg-white bg-transparent hover:border-transparent text-gray-600"
               onClick={() => setSelected(null)}
             >
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
-            <h2 className="ml-8 text-md font-semibold mb-4">{selected.name}</h2>
+            <h2 className="ml-12 mt-[20px] bg-white text-md font-semibold mb-4">
+              {selected.name}
+            </h2>
             <selected.component />
-          </>
+          </div>
         )}
       </div>
     </div>
