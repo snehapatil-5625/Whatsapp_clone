@@ -99,14 +99,14 @@ export default function Settings() {
         }`}
       >
         {selected && (
-          <div className="bg-white ">
+          <div className="bg-white absolute right-0 top-0 w-[400px] border-l border-gray-200 h-full">
             <button
-              className="absolute top-5 left-3 p-0 bg-white bg-transparent hover:border-transparent text-gray-600"
+              className="absolute top-5 left-3 p-0 bg-transparent hover:border-transparent text-gray-600"
               onClick={() => setSelected(null)}
             >
               <ArrowLeftIcon className="h-5 w-5" />
             </button>
-            <h2 className="ml-12 mt-[20px] bg-white text-md font-semibold mb-4">
+            <h2 className="ml-12 mt-[20px] text-md font-semibold mb-4">
               {selected.name}
             </h2>
             <selected.component />
